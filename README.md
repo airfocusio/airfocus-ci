@@ -6,7 +6,7 @@ Docker images for airfocus continuous integration:
 
 * OpenJDK 8u111 JDK
 * Scala 2.11.8 (also works with 2.12.1)
-* SBT 0.13.12
+* SBT 0.13.12 / 0.13.13
 * Docker 1.12.3 client
 
 ## airfocus-ci:web

@@ -25,7 +25,12 @@ RUN \
   mv sbt /opt/sbt && \
   ln -s /opt/sbt/bin/sbt /usr/bin/sbt && \
   rm sbt-$SBT_VERSION.tgz && \
-  sbt exit
+  mkdir project && \
+  echo "sbt.version=0.13.12" > project/build.properties && \
+  sbt sbtVersion && \
+  echo "sbt.version=0.13.13" > project/build.properties && \
+  sbt sbtVersion && \
+  rm -rf project
 RUN \
   wget https://get.docker.com/builds/Linux/x86_64/docker-$DOCKER_VERSION.tgz && \
   echo "a3bb88649bcc47775c29dab7d95709f4dda04d0e  docker-$DOCKER_VERSION.tgz" | shasum -c - && \

@@ -1,4 +1,4 @@
-FROM node:7.5.0
+FROM node:8.2.1
 MAINTAINER Christian Hoffmeister <mail@choffmeister.de>
 
 ENV DOCKER_VERSION="1.12.3"

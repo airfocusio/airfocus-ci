@@ -1,4 +1,4 @@
-FROM openjdk:8u111-jdk
+FROM openjdk:8u131-jdk
 MAINTAINER Christian Hoffmeister <mail@choffmeister.de>
 
 ENV SCALA_VERSION="2.11.8"

@@ -1,0 +1,7 @@
+{
+  "name": "test",
+  "scripts": {
+    "lint": "echo lint",
+    "test": "echo test"
+  }
+}

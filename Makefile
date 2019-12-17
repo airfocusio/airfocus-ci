@@ -12,6 +12,9 @@ build-node: build-base
 build-scala: build-base
 	docker build -t $(IMAGE)-scala:$(TAG) -f scala/Dockerfile .
 
+build-scala-atlassian-sdk: build-scala
+	docker build -t $(IMAGE)-scala-atlassian-sdk:$(TAG) -f scala-atlassian-sdk/Dockerfile .
+
 build-pulumi: build-base
 	docker build -t $(IMAGE)-pulumi:$(TAG) -f pulumi/Dockerfile .
 
@@ -64,4 +67,5 @@ publish: build
 	docker push $(IMAGE)-base:$(TAG)
 	docker push $(IMAGE)-node:$(TAG)
 	docker push $(IMAGE)-scala:$(TAG)
+	docker push $(IMAGE)-scala-atlassian-sdk:$(TAG)
 	docker push $(IMAGE)-pulumi:$(TAG)

@@ -16,7 +16,7 @@ if [ "${PLUGIN_ACTION:-lint}" = "lint" ]; then
 fi
 
 if [ "${PLUGIN_ACTION:-test}" = "test" ]; then
-  sbt -Dmongodb.uri=mongodb://mongodb:27017 test
+  sbt -Dmongodb.uri=mongodb://mongodb:27017 -Dpostgresql.db.properties.serverName=postgresql test
   sbt packageSite
 fi
 

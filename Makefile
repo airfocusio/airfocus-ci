@@ -1,7 +1,7 @@
 IMAGE=docker.pkg.airfocus.dev/airfocus/airfocus-ci
 TAG=latest
 
-build: build-base build-node build-scala build-pulumi
+build: build-base build-node build-scala build-scala-atlassian-sdk build-pulumi
 
 build-base:
 	docker build -t $(IMAGE)-base:$(TAG) -f base/Dockerfile .

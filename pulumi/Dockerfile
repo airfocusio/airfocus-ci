@@ -1,6 +1,6 @@
 FROM docker.pkg.airfocus.dev/airfocus/airfocus-ci-node:latest
 
-ENV PULUMI_VERSION="1.10.1"
+ENV PULUMI_VERSION="1.13.1"
 
 WORKDIR /tmp
 

@@ -1,7 +1,7 @@
 IMAGE=docker.pkg.airfocus.dev/airfocus/airfocus-ci
 TAG=latest
 
-build: build-base build-node build-scala build-scala-atlassian-sdk build-pulumi
+build: build-base build-node build-scala build-scala-atlassian-sdk
 
 build-base:
 	docker build -t $(IMAGE)-base:$(TAG) -f base/Dockerfile .
@@ -14,9 +14,6 @@ build-scala: build-base
 
 build-scala-atlassian-sdk: build-scala
 	docker build -t $(IMAGE)-scala-atlassian-sdk:$(TAG) -f scala-atlassian-sdk/Dockerfile .
-
-build-pulumi: build-base
-	docker build -t $(IMAGE)-pulumi:$(TAG) -f pulumi/Dockerfile .
 
 test: test-node test-scala
 
@@ -58,14 +55,8 @@ versions-scala: build-scala
 	docker run --rm -it --entrypoint scala $(IMAGE)-scala:$(TAG) -version
 	docker run --rm -it --entrypoint sbt $(IMAGE)-scala:$(TAG) sbtVersion
 
-versions-pulumi: build-pulumi
-	docker run --rm -it --entrypoint git $(IMAGE)-pulumi:$(TAG) --version
-	docker run --rm -it --entrypoint node $(IMAGE)-pulumi:$(TAG) --version
-	docker run --rm -it --entrypoint pulumi $(IMAGE)-pulumi:$(TAG) version
-
 publish: build
 	docker push $(IMAGE)-base:$(TAG)
 	docker push $(IMAGE)-node:$(TAG)
 	docker push $(IMAGE)-scala:$(TAG)
 	docker push $(IMAGE)-scala-atlassian-sdk:$(TAG)
-	docker push $(IMAGE)-pulumi:$(TAG)

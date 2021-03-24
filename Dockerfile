@@ -65,6 +65,7 @@ RUN \
   rm node-v$NODE_VERSION-linux-x64.tar.xz
 ENV PATH="/opt/node/bin:$PATH"
 RUN \
+  npm install -g npm && \
   npm install -g yarn
 
 WORKDIR /workspace

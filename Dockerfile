@@ -11,7 +11,7 @@ WORKDIR /tmp
 # install basic tools
 RUN \
   apt-get update && \
-  apt-get install --yes git wget xz-utils && \
+  apt-get install --yes git wget curl xz-utils && \
   apt-get clean
 
 # install docker cli
